@@ -4,6 +4,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 import copy
+from api import catCall, imageApiCall
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'csumb-otter'

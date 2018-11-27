@@ -1,0 +1,51 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+  Janky Demo
+{% endblock %}
+
+{% block content %}
+
+<!-- templates/index.html -->
+<!-- Angelo Paolo Calitis -->
+
+<div class="container">
+	<h1>{{ game_info[game_info["current_location"]]["room_title"] }}</h1>
+	
+	{% if (game_info[game_info["current_location"]]["room_connections"])|length == 2 %}
+		<p>
+		{{ game_info[game_info["current_location"]]["descriptions"][0] }}
+		<b>{{ game_info[game_info["current_location"]]["bolds"][0] }}</b>
+		{{ game_info[game_info["current_location"]]["descriptions"][1] }} 
+		<b>{{ game_info[game_info["current_location"]]["bolds"][1] }}</b> 
+		{{ game_info[game_info["current_location"]]["descriptions"][2] }}
+		</p>
+	{% endif %}
+	
+	{% if (game_info[game_info["current_location"]]["room_connections"])|length == 1 %}
+		<p>
+		{{ game_info[game_info["current_location"]]["descriptions"][0] }}
+		<b>{{ game_info[game_info["current_location"]]["bolds"][0] }}</b>
+		{{ game_info[game_info["current_location"]]["descriptions"][1] }} 
+		</p>
+	{% endif %}
+
+	
+	{% if game_info["error"] != None %}
+		<p>{{ game_info["error"] }}</p>
+	{% endif %}
+
+	<form action="" method="post">
+		{{ form.csrf_token }}
+		{{ form.hidden_tag() }}
+    <p>
+        {{ form.user_input.label }} <br> {{ form.user_input(size=32) }}
+    </p>
+
+    <p>{{ form.submit() }}</p>
+	</form>
+	
+	<p>Score: {{ game_info["score"] }} </p>
+
+</div>
+
+{% endblock %}

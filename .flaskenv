@@ -1,0 +1,2 @@
+FLASK_APP=cst205final_demo.py
+FLASK_DEBUG=1

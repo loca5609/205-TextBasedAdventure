@@ -1,0 +1,17 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+  Homework 4
+{% endblock %}
+
+{% block content %}
+
+<!-- templates/index.html -->
+<!-- Angelo Paolo Calitis -->
+
+<div class="container">
+	<h1>Demo</h1>
+	<p>Welcome to the adventure game demo. It is a clickable-link adventure game. We hope you are impressed by our mad coding skills</p>
+	<a href= "{{ url_for('scene', room = room_id) }}">Click here to continue.</a>
+</div>
+
+{% endblock %}
