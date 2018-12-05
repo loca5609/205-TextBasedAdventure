@@ -1,45 +1,47 @@
+import game_data, items
+
+#items = importlib.import_module(game_data.py)
+
 class Room:
-   def __init__(self, title, room_desc, connections, key=None, items=None, url=None):
-      self.title = title
-      self.room_desc = room_desc
-      self.connections = connections
-      self.key = key
-      self.items = items
-      self.url = url
+   def __init__(self, obj):
+      self.title = obj["title"]
+      self.room_desc = obj["room_desc"]
+      self.connections = obj["connections"]
+      self.item_key = obj["item_key"]
+      self.items = obj["items"]
+      self.url = None
 
    def setURL(self):
       return self.title.lower().replace(" ", "_")
 
-   def validConnnection(self, destination)
-      allowed_rooms = self.connections
-      if destination in allowed_rooms:
-         return True
-      else:
-         return False
-
-   def move_to(self, new_room, item_ref=None):
-      try:
-         new_room = new_room.lower()
-      except (AttributeError, TypeError):
-         return "Directions can only be alphanumeric characters!"
-      if new_room in self.connections:
-         print (new_room)
-         if new_room == "inspect game over":
-            self. = world.setRoom(new_room)
-            world_env.player.message = world_env.item_list[item_ref].dialogue
-         else:
-            world_env.player.current_room = world.setRoom(new_room)
-            world_env.player.setMessage(None)
-      else:
-         return new_room + " is not accessible from here."
+   # def move_to(self, new_room, item_ref=None):
+   #    try:
+   #       new_room = new_room.lower()
+   #    except (AttributeError, TypeError):
+   #       return "Directions can only be alphanumeric characters!"
+   #    if new_room in self.connections:
+   #       print (new_room)
+   #       if new_room == "inspect game over":
+   #          self. = world.setRoom(new_room)
+   #          world_env.player.message = world_env.item_list[item_ref].dialogue
+   #       else:
+   #          world_env.player.current_room = world.setRoom(new_room)
+   #          world_env.player.setMessage(None)
+   #    else:
+   #       return new_room + " is not accessible from here."
 
 
 rooms_dict = {}
 
-for obj in object_list:
-   if (obj["type"] == "room"):
-      rooms_dict[obj["key"]] = Room(obj)
+for obj in game_data.room_list:
+   rooms_dict[obj["dict_key"]] = Room(obj)
 
+print (rooms_dict["lab"].title)
+print (rooms_dict["lab"].room_desc)
+print (rooms_dict["lab"].connections)
+print (rooms_dict["lab"].item_key)
+print (rooms_dict["lab"].items)
+print (rooms_dict["lab"].url)
 
 # room_index = {
 #    "laboratory antechamber": Room("Laboratory Antechamber", 
