@@ -1,31 +1,18 @@
 import game_data
 
-class Item:
-    def __init__(self, name, dialogue, effect=[None], visited=False):
-        self.name = name
-        self.dialogue = dialogue
-        self.effect = effect
-        self.visited = visited
-
-    def inspect(self, item_name, room_items):
-        try:
-            if item_name in room_items:
-            #Checks specific effect attached to item, otherwise inspects item dialogue
-                if world_env.item_list[item_name].effect[0] is "inspect_death":
-                    move_to("inspect game over", world_env, item_name)
-                else:
-                    world_env.player.message = world_env.item_list[item_name].dialogue
-            elif item_name in world_env.player.inventory:
-                world_env.player.message = world_env.item_list[item_name].dialogue
-            else: 
-                world_env.player.message = "ERROR - Can't seem to find that..."
-        except ((AttributeError, TypeError)):
-        world_env.player.message = "ERROR - Can't seem to find that..."
-
 items_dict = {}
 
+class Item:
+    def __init__(self, obj):
+        self.name = obj["title"]
+        self.dialogue = obj["dialogue"]
+        self.danger = obj["danger"]
+        self.visited = False
+
+    def 
+
 for obj in game_data.item_list:
-   rooms_dict[obj["dict_key"]] = Item(obj)
+   items_dict[obj["dict_key"]] = Item(obj)
 
 # item_index = {
 #     "metal office desk": Item("Office metal desk", 

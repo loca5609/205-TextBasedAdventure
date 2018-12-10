@@ -1,6 +1,6 @@
 {% extends 'bootstrap/base.html' %}
 {% block title %}
-  Janky Demo
+  HER
 {% endblock %}
 
 {% block content %}
@@ -9,27 +9,39 @@
 <!-- Angelo Paolo Calitis -->
 
 <div class="container">
-	<h1>{{ current_room.title }}</h1>
+	<h1>{{ current_room["title"] }}</h1>
 	
-	{% if current_room.key == None %}
-		<p> {{ current_room.room_desc[0] }} </p>	
+	{% if player.msg != None %}
+		<p>{{ player.msg }}</p>
+	{% endif %}
+	
+	{% if player.is_alive %}
+	
+		{% if "key_item" not in current_room %}
+			<p> {{ current_room["room_desc"] }} </p>	
+		{% else %}
+			<p> {{ current_room["room_desc"][item_flags[current_room["key_item"]]] }} </p>
+		{% endif %}
+		
+		{% if current_room["title"] != "...silence..." %}
+			<form action="" method="post">
+				{{ form.csrf_token }}
+				{{ form.hidden_tag() }}
+			<p>
+				{{ form.user_input.label }} <br> {{ form.user_input(size=32) }}
+			</p>
+
+			<p>{{ form.submit() }}</p>
+			</form>
+		{% endif %}
+		
+		{% if current_room["title"] == "...silence..." %}
+			<a href= "{{ url_for('index') }}">PLAY AGAIN?</a>
+		{% endif %}
+		
 	{% else %}
-		<p> {{ current_room.room_desc[current_room.key.visited] }} </p>
+		<a href= "{{ url_for('index') }}">RETRY?</a>
 	{% endif %}
-	
-	{% if player.message != None %}
-		<p>{{ player.message }}</p>
-	{% endif %}
-
-	<form action="" method="post">
-		{{ form.csrf_token }}
-		{{ form.hidden_tag() }}
-    <p>
-        {{ form.user_input.label }} <br> {{ form.user_input(size=32) }}
-    </p>
-
-    <p>{{ form.submit() }}</p>
-	</form>
 	
 	<p>Score: {{ player.getScore() }} </p>
 
