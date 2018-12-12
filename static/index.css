@@ -1,0 +1,21 @@
+body {
+    background: black;
+    color: antiquewhite;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.scary {
+    font-family: 'spooky';
+    color: red;
+    font-size: 1000%;
+}
+
+@font-face {
+    font-family: 'spooky';
+    src: url('spooky-webfont.woff2') format('woff2'),
+        url('spooky-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

@@ -1,6 +1,12 @@
-{% extends 'bootstrap/base.html' %}
-{% block title %}
-  HER
+{% extends "bootstrap/base.html" %}
+{% block title %}H E R{% endblock %}
+
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}" />
+<link rel="stylesheet" href="{{url_for('static', filename='index.css')}}" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -9,10 +15,16 @@
 <!-- Angelo Paolo Calitis -->
 
 <div class="container">
-	<p>“She’s not in a good way, DOC.”</p>
-	<p>“She’s sick, please, only you and your lab have the equipment capable of saving us now. Only the MACGUFFIN can calm...”</p>
-	<p>“HER”</p>
-	<a href= "{{ url_for('scene', room = 'laboratory_antechamber') }}">ENTER?</a>
+    <p>“She’s not in a good way, DOC.”</p>
+    <p>
+        “She’s sick, please, only you and your lab have the equipment capable of
+        saving us now. Only the <p class="animated infinite pulse faster">MACGUFFIN</p> can
+        calm...”
+    </p>
+    <p class="scary animated fadeInLeft slow delay-1s">H E R</p>
+
+    <a class="btn btn-danger" href="{{ url_for('scene', room = 'laboratory_antechamber') }}">ENTER</a>
 </div>
+
 
 {% endblock %}

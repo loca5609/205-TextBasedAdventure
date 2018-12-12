@@ -1,50 +1,54 @@
-{% extends 'bootstrap/base.html' %}
-{% block title %}
-  HER
-{% endblock %}
+<!--
+  typeWriter.js from https://www.cssscript.com/pure-javascript-typewriter-typing-effect-typewriter-js/
+-->
 
-{% block content %}
+{% extends "bootstrap/base.html" %} {% block title %}H E R{% endblock %} {%
+block styles %} {{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='animate.css') }}" />
+<link rel="stylesheet" href="{{url_for('static', filename='rooms.css')}}" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+{% endblock %} {% block content %}
 
 <!-- templates/index.html -->
 <!-- Angelo Paolo Calitis -->
-
+<script src="{{url_for('static', filename='scripts/typeWriter.js')}}"></script>
 <div class="container">
-	<h1>{{ current_room["title"] }}</h1>
-	
-	{% if player.msg != None %}
-		<p>{{ player.msg }}</p>
-	{% endif %}
-	
-	{% if player.is_alive %}
-	
-		{% if "key_item" not in current_room %}
-			<p> {{ current_room["room_desc"] }} </p>	
-		{% else %}
-			<p> {{ current_room["room_desc"][item_flags[current_room["key_item"]]] }} </p>
-		{% endif %}
-		
-		{% if current_room["title"] != "...silence..." %}
-			<form action="" method="post">
-				{{ form.csrf_token }}
-				{{ form.hidden_tag() }}
-			<p>
-				{{ form.user_input.label }} <br> {{ form.user_input(size=32) }}
-			</p>
+    <h1 class="animated flipInX">{{ current_room["title"] }}</h1>
 
-			<p>{{ form.submit() }}</p>
-			</form>
-		{% endif %}
-		
-		{% if current_room["title"] == "...silence..." %}
-			<a href= "{{ url_for('index') }}">PLAY AGAIN?</a>
-		{% endif %}
-		
-	{% else %}
-		<a href= "{{ url_for('index') }}">RETRY?</a>
-	{% endif %}
-	
-	<p>Score: {{ player.getScore() }} </p>
+    {% if player.msg != None %}
+    <p>{{ player.msg }}</p>
+    {% endif %} {% if player.is_alive %} {% if "key_item" not in current_room %}
 
+    <p id="room_desc">{{ current_room["room_desc"] }}</p>
+    <script>
+        typeWriter("#room_desc", "true", 5);
+    </script>
+    {% else %}
+    <p id="iFlag_room">
+        {{ current_room["room_desc"][item_flags[current_room["key_item"]]] }}
+    </p>
+    <script>
+        typeWriter("#iFlag_room", "true", 5);
+    </script>
+    {% endif %} {% if current_room["title"] != "...silence..." %}
+    <form action="" method="post">
+        {{ form.csrf_token }} {{ form.hidden_tag() }}
+        <p>
+            {{ form.user_input.label }} <br />
+            {{ form.user_input(size=32) }}
+        </p>
+
+        <p id="submit">{{ form.submit() }}</p>
+    </form>
+    {% endif %} {% if current_room["title"] == "...silence..." %}
+    <a href="{{ url_for('index') }}">PLAY AGAIN?</a> {% endif %} {% else %}
+    <p class="animated hinge slow"><a href="{{ url_for('index') }}">RETRY?</a></p>
+    <p class="animated rollIn slowest delay-2s">
+        <a href="{{ url_for('index') }}">RETRY?</a>
+    </p>
+    {% endif %}
+
+    <p>Score: {{ player.getScore() }}</p>
 </div>
 
-{% endblock %}
+{% endblock %} s
