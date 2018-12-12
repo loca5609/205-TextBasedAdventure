@@ -12,7 +12,16 @@
 	<h1>{{ current_room["title"] }}</h1>
 	
 	{% if player.msg != None %}
-		<p>{{ player.msg }}</p>
+	
+		{% if player.msg is iterable and player.msg is not string %}
+			{% for line in player.msg %}
+				<p>{{ line|safe}}</p>
+			{% endfor %}
+		
+		{% else %}
+			<p>{{ player.msg }}</p>
+		{% endif %}		
+
 	{% endif %}
 	
 	{% if player.is_alive %}
@@ -24,11 +33,11 @@
 		{% endif %}
 		
 		{% if current_room["title"] != "...silence..." %}
-			<form action="" method="post">
+			<form action="" method="post" autocomplete="off">
 				{{ form.csrf_token }}
 				{{ form.hidden_tag() }}
 			<p>
-				{{ form.user_input.label }} <br> {{ form.user_input(size=32) }}
+				{{ form.user_input.label }} <br> {{ form.user_input(autofocus=true, size=32) }}
 			</p>
 
 			<p>{{ form.submit() }}</p>
