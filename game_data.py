@@ -113,17 +113,17 @@ world_rooms = {
         "room_desc" : "You enter your LABORATORY ANTECHAMBER. " 
             "It is as clean and organized as you had left it, perfect for patients to wait in. " 
             "Judging from the blaring red lights, the whole building is in LOCKDOWN. " 
-            "This will not be as straightforward as you had hoped."
-            "There is a door leading to a long PASSAGE to THE STUDY.",
+            "This will not be as straightforward as you had hoped. "
+            "There is a door leading to a long PASSAGE to THE STUDY. ",
         "connections" : ["passage"]
     },
 
     ### PASSAGE TO THE STUDY  
     "passage": {
         "title" : "30 ft Passage",
-        "room_desc" : "The PASSAGE continues for another 30 feet. Sirens blare loudly."
+        "room_desc" : "The PASSAGE continues for another 30 feet. Sirens blare loudly. "
             "Along the wall there are several doors. "
-            "One door leads to the CALITIS OFFICE, another to the CISTERN, and the last to the STUDY.",
+            "One door leads to the CALITIS OFFICE, another to the CISTERN, and the last to the STUDY. ",
         "connections" : ["laboratory antechamber", "calitis office", "cistern", "study"]
     },
 
@@ -131,7 +131,7 @@ world_rooms = {
     "calitis office": {
         "title" : "The Calitis' Office",
         "room_desc" : "You notice CLAW MARKS leading to the office door. " 
-            "Inside, the neatly stacked PILES OF PAPER are all shredded and seemingly tossed wildly across the room." 
+            "Inside, the neatly stacked PILES OF PAPER are all shredded and seemingly tossed wildly across the room. " 
             "The WOODEN CHAIR is in pieces. The only thing left intact is the METAL DESK. ",
         "connections" : ["passage"],
         "items": ["metal desk", "piles of paper", "wooden chair"]
@@ -140,8 +140,8 @@ world_rooms = {
     ### CISTERN
     "cistern": {
         "title" : "The Cistern",
-        "room_desc" : "The once pristine POOLS OF WATER in this room are now tainted with radioactive chemicals." 
-            "Probably the same that caused HER to freak out. On the opposite wall, across the POOLS OF WATER, hangs CHEKHOV’S GUN.",
+        "room_desc" : "The once pristine POOLS OF WATER in this room are now tainted with radioactive chemicals. " 
+            "Probably the same that caused HER to freak out. On the opposite wall, across the POOLS OF WATER, hangs CHEKHOV’S GUN. ",
         "connections" : ["passage"],
         "items": ["pools of water", "chekhov's gun"]
     },
@@ -151,10 +151,10 @@ world_rooms = {
         "title" : "The Study",
         "room_desc" : 
             #Locked Description
-            ["The door to THE STUDY is locked. The ALPHANUMERIC KEYPAD glows red angrily as you press random codes.", 
+            ["The door to THE STUDY is locked. The ALPHANUMERIC KEYPAD glows red angrily as you press random codes. ", 
             #Unlocked description
-            "Inside is a mess. The WOODEN FURNITURE is wrecked." 
-            "Splotches of GREEN VOMIT lay strewn across the walls and floor. There is a door leading to the EXPERIMENTATION LAB"
+            "Inside is a mess. The WOODEN FURNITURE is wrecked. " 
+            "Splotches of GREEN VOMIT lay strewn across the walls and floor. There is a door leading to the EXPERIMENTATION LAB "
             "What do you inspect?"],
         "connections" : ["passage", "experimentation lab"],
         "key_item": "metal desk",
@@ -166,11 +166,11 @@ world_rooms = {
         "title" : "The Experimentation Lab",
         "room_desc" : 
             #Locked Description
-            ["The door to the labs is a heavy metal one. It’s locked." 
-            "There are no knobs to turn, only one BIG LEVER on the side of the wall.", 
+            ["The door to the labs is a heavy metal one. It’s locked. " 
+            "There are no knobs to turn, only one BIG LEVER on the side of the wall. ", 
             #Unlocked Description
-            "There is glass everywhere. Lines of VISCOUS LIQUID streak from tubes along the floor." 
-            "The many HAZARD SUITS hang untouched in their cabinets. There is also the door to the MACGUFFIN ROOM."
+            "There is glass everywhere. Lines of VISCOUS LIQUID streak from tubes along the floor. " 
+            "The many HAZARD SUITS hang untouched in their cabinets. There is also the door to the MACGUFFIN ROOM. "
             "What do you inspect?"],
         "connections" : ["study", "macguffin room"],
         "key_item": "big lever",
@@ -187,28 +187,28 @@ world_rooms = {
         "specific_item": "macguffin",
         "success_dest": "macguffin_01",
         "death_msg": {
-            "wet thud": "The sound you make in turning around alerts HER to your presence. In her manic rampage, she shreds you to pieces. GAME OVER.",
-            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER."
+            "wet thud": "The sound you make in turning around alerts HER to your presence. In her manic rampage, she shreds you to pieces. GAME OVER. ",
+            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER ."
         }
     },
 
     ## MACGUFFIN 01
     "macguffin_01": {
         "title" : "5",
-        "room_desc" : "You don’t remember designing the security measures like this, but the MACGUFFIN is encased in an incredibly large box." 
+        "room_desc" : "You don’t remember designing the security measures like this, but the MACGUFFIN is encased in an incredibly large box. " 
             "Protecting the box, there is an ALPHANUMERIC KEYPAD and a LARGE LEVER. "
 
             "Since SHE is blind, SHE hasn’t noticed you yet. " 
             
-            "Judging from the WET FOOTSTEPS and the sniffing behind you, you only have 5 seconds to administer the MACGUFFIN.",
+            "Judging from the WET FOOTSTEPS and the sniffing behind you, you only have 5 seconds to administer the MACGUFFIN. ",
 
         "specific_item": "alphanumeric keypad",
         "success_dest": "macguffin_02",
         "death_msg": {
-            "wet footsteps": "The sound you make in turning around alerts HER to your presence. In her manic rampage, she shreds you to pieces. GAME OVER.",
-            "chekhov's gun": "You swing CHEKHOV'S GUN toward HER. Point. Click. The gun isn’t loaded. She leaps at you, ripping you to pieces. GAME OVER",
-            "large lever": "The lever doesnt budge. The alphanumeric keypad beeps angrily. Alerted by the sound, SHE leaps at you. GAME OVER.",
-            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER."
+            "wet footsteps": "The sound you make in turning around alerts HER to your presence. In her manic rampage, she shreds you to pieces. GAME OVER. ",
+            "chekhov's gun": "You swing CHEKHOV'S GUN toward HER. Point. Click. The gun isn’t loaded. She leaps at you, ripping you to pieces. GAME OVER. ",
+            "large lever": "The lever doesnt budge. The alphanumeric keypad beeps angrily. Alerted by the sound, SHE leaps at you. GAME OVER. ",
+            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER. "
         }
     },
 
@@ -220,13 +220,13 @@ world_rooms = {
             "The MACGUFFIN is still encased in an incredibly large box. " 
             "The ALPHANUMERIC KEYPAD glows green and a LARGE LEVER sits next to it. \n"
 
-            "4 seconds left.",
+            "4 seconds left. ",
 
         "specific_item": "large lever",
         "success_dest": "macguffin_03",
         "death_msg": {
-            "chekhov's gun": "You swing CHEKHOV'S GUN toward HER. Point. Click. The gun isn’t loaded. She leaps at you, ripping you to pieces. GAME OVER",
-            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER."
+            "chekhov's gun": "You swing CHEKHOV'S GUN toward HER. Point. Click. The gun isn’t loaded. She leaps at you, ripping you to pieces. GAME OVER. ",
+            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER. "
         }
     },
 
@@ -241,8 +241,8 @@ world_rooms = {
         "specific_item": "metal bullet",
         "success_dest": "macguffin_04",
         "death_msg": {
-            "chekhov's gun": "You swing CHEKHOV'S GUN toward HER. Point. Click. The gun isn’t loaded. She leaps at you, ripping you to pieces. GAME OVER",
-            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER."
+            "chekhov's gun": "You swing CHEKHOV'S GUN toward HER. Point. Click. The gun isn’t loaded. She leaps at you, ripping you to pieces. GAME OVER. ",
+            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER. "
         }
     },
 
@@ -252,22 +252,22 @@ world_rooms = {
         "room_desc" : "You hastily load the METAL BULLET into CHEKHOV'S GUN. " 
 
             "You can feel HER breath on the back of your neck. " 
-            "2 seconds left.",
+            "2 seconds left. ",
 
         "specific_item": "chekhov's gun",
         "success_dest": "macguffin_05",
         "death_msg": {
             "macguffin": "You turn and rush to use the MACGUFFIN on HER, but her SCALES are too tough for the MACGUFFIN to pierce. "
                 "SHE swipes at you with her claws. GAME OVER.",
-            "chekhov's gun": "You swing CHEKHOV'S GUN toward HER. Point. Click. The gun isn’t loaded. She leaps at you, ripping you to pieces. GAME OVER",
-            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER."
+            "chekhov's gun": "You swing CHEKHOV'S GUN toward HER. Point. Click. The gun isn’t loaded. She leaps at you, ripping you to pieces. GAME OVER. ",
+            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER. "
         }
     },
 
     ### MACGUFFIN 05
     "macguffin_05": {
         "title" : "1",
-        "room_desc" : "You swing CHEKHOV'S GUN toward HER. Point. BANG!" 
+        "room_desc" : "You swing CHEKHOV'S GUN toward HER. Point. BANG! " 
             "The METAL BULLET flies through the air. You feel the recoil in your shoulder. " 
             "If you hadn’t been the original designer, your arm might have been ripped off. "
 
@@ -280,8 +280,8 @@ world_rooms = {
         "specific_item": "macguffin",
         "success_dest": "macguffin_endgame",
         "death_msg": {
-            "chekhov's gun": "You swing CHEKHOV'S GUN toward HER. Point. Click. The gun isn’t loaded. She leaps at you, ripping you to pieces. GAME OVER",
-            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER."
+            "chekhov's gun": "You swing CHEKHOV'S GUN toward HER. Point. Click. The gun isn’t loaded. She leaps at you, ripping you to pieces. GAME OVER. ",
+            "11DEAFAULTDEATHMSG11": "Trying to interact with anything else causes HER to leap at you, ripping you to pieces. GAME OVER. "
         }
     },
 
@@ -290,6 +290,6 @@ world_rooms = {
         "title" : "...silence...",
         "room_desc" : "Utilizing the opening in her ACHILLES HEEL, you use the MACGUFFIN. \n"
             "She calms down instantly. \n"
-            "YOU WIN."
+            "YOU WIN. "
     }
 }
