@@ -12,13 +12,14 @@ h1 {
 
 input[type=text] {
     width: 33%;
-    background-color: rgb(0, 0, 0);
+    background-color: black;
     transition: ease-in-out, width .35s ease-in-out;
 
 }
 
 input[type=text]:focus {
     width: 50%;
+
 }
 
 input[type=submit] {

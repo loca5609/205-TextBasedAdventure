@@ -10,14 +10,18 @@ app.config['SECRET_KEY'] = os.urandom(24)
 bootstrap = Bootstrap(app)
 
 move_verbs = ["go", "enter", "move"]
+inspect_verbs = ["inspect", "l", "look", "x", "examine"]
 
 
 def help():
-    return "'The game uses a 'verb noun' format. \n"
-    "'inspect [item]' = inspects that particular item \n"
-    "'move [room]' = move to that particular room \n"
-    "'inventory' = show items stored in your Hammerspace \n"
-    "'help' = shows this exact dialogue again, in case you get stuck"
+    return [
+        "The game uses a 'verb noun' format. ",
+        "[inspect verb] [item] = inspects that particular item ",
+        "[move verb] [room] = move to that particular room ",
+        "help = shows this exact dialogue again, in case you get stuck ",
+        "Move verbs include: go, enter, move ",
+        "Inspect verbs include: inspect, l, look, x, examine"
+    ]
 
 
 #Input form
@@ -69,8 +73,8 @@ def scene(room):
                 game_state.move(command[1])
             elif command[0] == "inspect":
                 game_state.inspect(command[1])
-            #elif command[0] == "help":
-            #   game_state.player.setMsg.(help())
+            elif command[0] == "help":
+                game_state.player.setMsg(help())
             else:
                 game_state.player.setMsg(
                     "I don't understand that command. Please try again.")
