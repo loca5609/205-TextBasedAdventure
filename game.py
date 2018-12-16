@@ -12,21 +12,26 @@ bootstrap = Bootstrap(app)
 move_verbs = ["go", "enter", "move"]
 inspect_verbs = ["inspect", "l", "look", "x", "examine"]
 
+# Help function to show commands
 def help():
    return ["The game uses a 'verb noun' format. ",
    "[inspect verb] [item] = inspects that particular item ",
    "[move verb] [room] = move to that particular room ",
    "help = shows this exact dialogue again, in case you get stuck ",
    "Move verbs include: go, enter, move ",
-   "Inspect verbs include: inspect, l, look, x, examine"]
+   "Inspect verbs include: inspect, l, look, x, examine",
+   "Moving to a room or checking out an item requires exact spelling of requested object."]
 
-#Input form
+# Input form
 class Input(FlaskForm):
    user_input = StringField('What now?', validators=[DataRequired()])
    submit = SubmitField('Submit')
 
-#The game's home page
-#Connects to the first room
+# The game's home page
+# Connects to the first room
+# Uses cookies in order to preserve player's progress across requests,
+# as well as distinguish players from each other.
+
 @app.route('/')
 def index():
    # Sets the starting state of the game
@@ -56,21 +61,23 @@ def scene(room):
       command = form.user_input.data.split(" ", 1)
 
       try:
+         command[0] = command[0].lower()
          #Logic continues if valid verb, error otherwise
 
          if command[0] in move_verbs:
             #moves player into requested room, if possible
             game_state.move(command[1])
-         elif command[0] == "inspect":
+         elif command[0] in inspect_verbs:
             game_state.inspect(command[1])
          elif command[0] == "help":
             game_state.player.setMsg(help())
+         elif command[0] == "inventory":
+            game_state.player.setMsg(game_state.inventory())
          else:
             game_state.player.setMsg("I don't understand that command. Please try again.")
       except (IndexError):
          game_state.player.setMsg("Please enter a complete, valid command.")
 
-      #Makes the room page URL-friendly
       url_id = game_state.url_friendly()
 
       session['player'] = jsonpickle.encode(game_state.player)
@@ -81,7 +88,6 @@ def scene(room):
       return redirect('/scene/' + url_id)
 
    #displays the HTML page
-
    return render_template('render_room.html', player = game_state.player, current_room = game_state.get_room_data(),
       item_flags = game_state.item_flags, hammerspace_flags = game_state.hammerspace_flags, form = form)
 
