@@ -17,6 +17,7 @@ def help():
    return ["The game uses a 'verb noun' format. ",
    "[inspect verb] [item] = inspects that particular item ",
    "[move verb] [room] = move to that particular room ",
+   "inventory = shows items that you have ",
    "help = shows this exact dialogue again, in case you get stuck ",
    "Move verbs include: go, enter, move ",
    "Inspect verbs include: inspect, l, look, x, examine",
