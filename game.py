@@ -63,20 +63,30 @@ def scene(room):
 
       try:
          command[0] = command[0].lower()
-         #Logic continues if valid verb, error otherwise
+         # Logic continues if valid verb, error otherwise
 
          if command[0] in move_verbs:
-            #moves player into requested room, if possible
+            # Moves player into requested room, if possible
             game_state.move(command[1])
+
          elif command[0] in inspect_verbs:
+            # Inspects item, if possible
             game_state.inspect(command[1])
+
          elif command[0] == "help":
+            # Shows helpful information
             game_state.player.setMsg(help())
+
          elif command[0] == "inventory":
+            # Shows player inventory
             game_state.player.setMsg(game_state.inventory())
+
          else:
+            # Error upon invalid command
             game_state.player.setMsg("I don't understand that command. Please try again.")
+
       except (IndexError):
+         # Catches index errors
          game_state.player.setMsg("Please enter a complete, valid command.")
 
       url_id = game_state.url_friendly()
