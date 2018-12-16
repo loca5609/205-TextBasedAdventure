@@ -102,6 +102,6 @@ def scene(room):
    return render_template('render_room.html', player = game_state.player, current_room = game_state.get_room_data(),
       item_flags = game_state.item_flags, hammerspace_flags = game_state.hammerspace_flags, form = form)
 
+# Runs the game
 if __name__ == '__main__':
-   app.run(debug=True)
    app.run()
