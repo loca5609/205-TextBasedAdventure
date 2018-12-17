@@ -19,3 +19,16 @@ body {
     font-style: normal;
 
 }
+
+svg {
+    display: block;
+    margin: 0 auto;
+}
+
+path {
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
