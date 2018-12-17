@@ -19,7 +19,7 @@ world_items = {
         "You now have uncomfortable splinters in unforetold places.",
 
     ### POOLS OF WATER (no effect)
-    "pools of water": "Upon further inspection, certain chemicals from your previous experiments have leaked through the VENTS and drains. " 
+    "pools of water": "Upon further inspection, certain chemicals from your previous experiments have leaked through the vents and drains. " 
         "How? You don’t know. But this is a problem.",
 
     ### CHEKHOV'S GUN (danger, key item)
@@ -54,26 +54,14 @@ world_items = {
     },
 
     ### VISCOUS LIQUID
-    "viscous_liquid": "Trails of the liquid lead from tubes to the VENTS. You need to find her fast.",
+    "viscous liquid": "Trails of the liquid lead from tubes to the VENTS. You need to find her fast.",
 
     ### VENTS
     "vents": "You open the grate to the VENTS, but you are too large to fit inside. "  
         "SHE could be anywhere in the lab now.",
 
     ### HAZARD SUIT (key item)
-    "hazard suit": "You always felt safe in one of these. Better put it on.",
-
-    ### WET THUD (danger)
-    # "wet thud": {
-    #     "item_desc": "The sound you make in turning around alerts HER to your presence. In her manic rampage, she shreds you to pieces. GAME OVER.",
-    #     "effect": "inspect_kill"
-    # },
-
-    # ### WET FOOTSTEPS (danger)
-    # "wet footsteps": {
-    #     "item_desc": "The sound you make in turning around alerts HER to your presence. In her manic rampage, she shreds you to pieces. GAME OVER.",
-    #     "effect": "inspect_kill"
-    # }
+    "hazard suit": "You always felt safe in one of these. Better put it on."
 }
 
 # Flags of important items the player must visit in order to progress.

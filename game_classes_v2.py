@@ -110,6 +110,7 @@ class GameState:
                                     current_room]["specific_item"] == item:
                     if item in self.item_flags:
                         if self.item_flags[item]:
+                            self.player.setMsg(None)
                             self.current_room = self.world_rooms[
                                 self.current_room]["success_dest"]
                         else:
@@ -119,6 +120,7 @@ class GameState:
                             self.player.kill_player()
                     elif item in self.hammerspace_flags:
                         if self.hammerspace_flags[item]:
+                            self.player.setMsg(None)
                             self.current_room = self.world_rooms[
                                 self.current_room]["success_dest"]
                         else:
@@ -127,6 +129,7 @@ class GameState:
                                 ["death_msg"]["11DEAFAULTDEATHMSG11"])
                             self.player.kill_player()
                     else:
+                        self.player.setMsg(None)
                         self.current_room = self.world_rooms[
                             self.current_room]["success_dest"]
                 else:
@@ -218,4 +221,4 @@ class GameState:
                 self.player.kill_player()
         except (AttributeError, TypeError):
             self.player.setMsg(
-                "Directions can only be alphanumeric characters!")
+"Directions can only be alphanumeric characters!")
