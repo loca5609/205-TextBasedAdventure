@@ -1,0 +1,20 @@
+diff a/static/index.css b/static/index.css	(rejected hunks)
+@@ -18,4 +18,17 @@
+     font-weight: normal;
+     font-style: normal;
+ 
++}
++
++svg {
++    display: block;
++    margin: 0 auto;
++}
++
++path {
++    fill: none;
++    stroke: white;
++    stroke-width: 2;
++    stroke-linecap: round;
++    stroke-linejoin: round;
+ }
+\ No newline at end of file
